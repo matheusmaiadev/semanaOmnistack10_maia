@@ -5,6 +5,7 @@ const express = require('express');
 //Inportanto a bibliotaca mongoose... para abrir a base de dados mongoDB
 const mongoose = require('mongoose')
 const routes = require('./routes');
+const cors = require('cors');
 
 const app = express();
 
@@ -14,6 +15,7 @@ mongoose.connect("mongodb+srv://omnistack:omnistack@cluster0-id5s7.mongodb.net/w
   useUnifiedTopology: true
 })
 
+app.use(cors({}))
 //Indica para o Express para atender requicisoes to tipo Json, precisa ser antes das rotas
 app.use(express.json());
 app.use(routes);
